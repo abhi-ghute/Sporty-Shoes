@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sporty.model.User;
 import com.sporty.service.UserService;
@@ -30,21 +29,21 @@ public class UserController {
 		return "searchuser";
 	}
 	
-	@PostMapping("/search")
-	public String getUser(@RequestParam String sid,Model model) {
-			
-		User user = service.getUser(sid);
-		model.addAttribute("user",user);
-		
-		return "updateuser";
-
-	}
-	
-	@PostMapping("/update")
-	public String updateUser(@ModelAttribute User user) {
-		service.createUser(user);
-		return "searchuser";
-	}
+//	@PostMapping("/search")
+//	public String getUser(@RequestParam String sid,Model model) {
+//			
+//		User user = service.getUser(sid);
+//		model.addAttribute("user",user);
+//		
+//		return "updateuser";
+//
+//	}
+//	
+//	@PostMapping("/update")
+//	public String updateUser(@ModelAttribute User user) {
+//		service.createUser(user);
+//		return "searchuser";
+//	}
 	
 	
 }

@@ -1,7 +1,15 @@
 package com.sporty.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class UserEntity {
 
+	@Id
+	@GeneratedValue
+	private Integer id;
 	private String name;
 	private String email;
 	private String password;
@@ -9,6 +17,12 @@ public class UserEntity {
 	private String age;
 	private String address;
 	
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public Integer getId() {
+		return id;
+	}
 	public String getName() {
 		return name;
 	}
