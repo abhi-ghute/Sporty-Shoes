@@ -21,7 +21,7 @@ public class UserService {
 		UserEntity userEntity = new UserEntity();
 		BeanUtils.copyProperties(user, userEntity);
 
-		//userRepo.save(userEntity);
+		userRepo.save(userEntity);
 
 		return "success";
 	}
