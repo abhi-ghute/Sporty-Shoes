@@ -36,7 +36,7 @@ public class LoginController {
 		if(login.getUserName().equalsIgnoreCase("admin") && login.getPassword().equals("admin"))	
 		{	
 			session.setAttribute("user", "admin");
-			return "index";
+			return "users";
 		}else {
 			boolean b = service.checkLogin(login);
 			if(b==true) {

@@ -1,5 +1,6 @@
 package com.sporty.service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,15 +9,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sporty.entity.AddShoesEntity;
+import com.sporty.entity.UserEntity;
 import com.sporty.model.AddShoes;
 import com.sporty.model.PurchaseReport;
+import com.sporty.model.User;
 import com.sporty.repository.ShoesInf;
+import com.sporty.repository.UserInf;
 
 @Service
 public class AdminService {
 
 	@Autowired
 	ShoesInf shoesInf;
+	
+	@Autowired
+	UserInf userInf;
 	
 	public List<AddShoes> getReport(PurchaseReport report){
 		
@@ -31,5 +38,20 @@ public class AdminService {
 		}
 		
 		return shoes;
+	}
+	
+	public List<User> getUsers() throws IOException {
+
+		List<UserEntity> userList = new ArrayList<>();
+		userInf.findAll().forEach(userList::add);
+
+		List<User> users = new ArrayList<>();
+
+		for (UserEntity entity : userList) {
+			User temp = new User();
+			BeanUtils.copyProperties(entity, temp);
+			users.add(temp);
+		}
+		return users;
 	}
 }
