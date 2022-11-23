@@ -7,9 +7,10 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<jsp:include page="header.jsp"></jsp:include>
 <body>
 	<div align="center">
-		<h2>Create User</h2>
+		<h2>Add Shoes</h2>
 		<form:form action="addshoes" method="POST" modelAttribute="shoes"
 			enctype="multipart/form-data">
 			<table border="1">

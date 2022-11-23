@@ -9,8 +9,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <div align="center">
-<h2>Update User</h2>
+<h2>User Details</h2>
 	<form:form action="update" method="POST" modelAttribute="user">
 		<table border="1">
 			<tr>

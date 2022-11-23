@@ -41,7 +41,13 @@ public class ShoesController {
 	}
 	
 	@GetMapping("/shoes")
-	public String addShoesPage(Model model) {
+	public String addShoesPage(Model model, HttpSession session) {
+		
+		String admin = (String)session.getAttribute("user");
+		if(admin==null || !admin.equals("admin")) {
+			model.addAttribute("login",new Login());
+			return "login";
+		}
 		AddShoes shoes = new AddShoes();
 		model.addAttribute("shoes",shoes);
 		return "addShoesPage";

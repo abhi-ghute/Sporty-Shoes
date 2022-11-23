@@ -18,6 +18,7 @@
 </head>
 <body>
 <jsp:include page="header.jsp"></jsp:include>
+<h2 align="center">Cart List</h2>
 <c:forEach items="${shoes}" var="item">
 	
 	<div class="center">

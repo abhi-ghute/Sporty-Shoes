@@ -9,6 +9,7 @@
 </head>
 <body>
 <div align="center">
+<jsp:include page="header.jsp"></jsp:include>
 <h2>Create User</h2>
 	<form:form action="create" method="POST" modelAttribute="user">
 		<table border="1">

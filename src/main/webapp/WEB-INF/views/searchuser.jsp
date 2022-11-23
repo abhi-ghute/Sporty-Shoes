@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="header.jsp"></jsp:include>
 <div align="center">
 <h2>Search User</h2>
 	<form action="search" method="POST">

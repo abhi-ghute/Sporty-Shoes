@@ -66,17 +66,23 @@
 			<%
 			String admin = (String)session.getAttribute("user");
 			if(admin!=null && admin.equals("admin")) {%>
-				<a href="addFlight.jsp">Home</a>
-				<a href=addAirLine.jsp>AddAirLine</a>
-				<a href=addPlaces.jsp>AddCity</a>
-				<a href="changepassword.jsp">Change Password</a>
-				<a href="logout.jsp">Logout</a>
-			<%}else{%>
-				<a href="home.jsp">Home</a>
-				<a href="SearchTicket.jsp">SearchTicket</a>
-				<a href="login.jsp">Login</a>
+				<a href="report">Purchase Report</a>
+				<a href="searchuser">Search Users</a>
+				<a href="users">Users List</a>
+				<a href="shoes">Add Shoes</a>
+				<a href="logout">Logout</a>
+
+			<%}else if(admin!=null){%>
+				<a href="index">Home</a>
+				<a href="cart">Cart</a>
+				<a href="logout">Logout</a>
 			<%}
+			else{%>
+			<a href="index">Home</a>
+			<a href="login">Login</a>
+		<%}
 			%>
+			
 			
 		</div>
 	</div>

@@ -58,20 +58,6 @@ public class UserController {
 		return "cart";
 	}
 	
-	@GetMapping("/searchuser")
-	public  String searchUserPage() {
-		return "searchuser";
-	}
-	
-	@PostMapping("/search")
-	public String getUser(@RequestParam String email,Model model) {
-			
-		User user = service.getUser(email);
-		model.addAttribute("user",user);
-		
-		return "viewUser";
-
-	}
 //	
 //	@PostMapping("/update")
 //	public String updateUser(@ModelAttribute User user) {

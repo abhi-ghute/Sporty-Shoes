@@ -13,8 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.sporty.model.Login;
 import com.sporty.model.User;
+import com.sporty.service.AdminService;
 import com.sporty.service.LoginService;
 import com.sporty.service.ShoesService;
+import com.sporty.service.UserService;
 
 @Controller
 public class LoginController {
@@ -24,6 +26,9 @@ public class LoginController {
 	
 	@Autowired
 	ShoesService shoesService;
+	
+	@Autowired
+	AdminService adminService;
 	
 	@GetMapping("/login")
 	public String loginpage(Model model) {
@@ -36,7 +41,9 @@ public class LoginController {
 		if(login.getUserName().equalsIgnoreCase("admin") && login.getPassword().equals("admin"))	
 		{	
 			session.setAttribute("user", "admin");
-			return "users";
+			model.addAttribute("report",adminService.getUsers());
+			
+			return "Users";
 		}else {
 			boolean b = service.checkLogin(login);
 			if(b==true) {
@@ -45,5 +52,12 @@ public class LoginController {
 			}
 			return "index";
 		}
+	}
+	
+	@GetMapping("/logout")
+	public String logoutPage(Model model,HttpSession session) {
+		session.invalidate();
+		model.addAttribute("login",new Login());
+		return "login";
 	}
 }
