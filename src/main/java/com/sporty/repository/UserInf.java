@@ -11,4 +11,6 @@ import com.sporty.entity.UserEntity;
 public interface UserInf extends CrudRepository<UserEntity, Integer>{
 
 	public List<UserEntity> findByEmailAndPassword(String email,String password);
+	
+	public List<UserEntity> findByEmail(String email);
 }

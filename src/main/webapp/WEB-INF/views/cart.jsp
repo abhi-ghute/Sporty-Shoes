@@ -28,7 +28,6 @@
 		<div style="font-weight: bold;  font-size: 20px;"><label></label><c:out value="${item.shoesType}"/></div>
 		<div style="font-weight: bold;  font-size: 20px;"><label>Size : </label><c:out value="${item.size}"/></div>
 		<div style="font-weight: bold;  font-size: 20px;"><label>Price : </label><c:out value="${item.price}"/> RS.</div>
-		<div style="font-weight: bold;  font-size: 20px;"><a href="payment?name=<c:out value="${item.name}"/>"><button>BUY</button></a></div>
 		</div>
 	</div>
   	

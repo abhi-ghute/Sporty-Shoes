@@ -8,5 +8,8 @@
 </head>
 <body>
 
+<table align="center">
+	<tr></tr>
+</table>
 </body>
 </html>

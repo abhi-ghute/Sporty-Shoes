@@ -1,6 +1,8 @@
 package com.sporty.service;
 
 
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,18 +28,19 @@ public class UserService {
 		return "success";
 	}
 
-//	public User getUser(String sid) {
-//	 	List<UserEntity> listentity= userRepo.findByStudentID(sid);
-//	 	User user = new User();
-//	 	
-//	 	if(listentity.size()==0) {
-//	 		System.out.println("nnoll");
-//	 		return user;
-//	 	}
-//	 	
-//		BeanUtils.copyProperties(listentity.get(0), user);
-//		
-//
-//		return user;
-//	}
+
+	public User getUser(String email) {
+	 	List<UserEntity> listentity= userRepo.findByEmail(email);
+	 	User user = new User();
+	 	
+	 	if(listentity.size()==0) {
+	 		System.out.println("nnoll");
+	 		return user;
+	 	}
+	 	
+		BeanUtils.copyProperties(listentity.get(0), user);
+		
+
+		return user;
+	}
 }

@@ -12,6 +12,7 @@ public class CartEntity {
 	private Integer id;
 	private String email;
 	private String shooetype;
+	private String date;
 
 	public String getEmail() {
 			return email;
@@ -27,6 +28,14 @@ public class CartEntity {
 
 	public void setShooetype(String shooetype) {
 		this.shooetype = shooetype;
+	}
+	
+	public void setDate(String date) {
+		this.date = date;
+	}
+	
+	public String getDate() {
+		return date;
 	}
 
 }

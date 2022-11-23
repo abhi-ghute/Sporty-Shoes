@@ -41,28 +41,37 @@ public class UserController {
 		return "index";
 	}
 	
-	@GetMapping("/cart")
-	public String cartPage(Model model) throws IOException {
-		return "cart";
-	}
-	
-	@GetMapping("/cartStore")
+	@PostMapping("/cartStore")
 	public String cartStore(@RequestParam("name") String name, Model model,Cart cart,HttpSession session) throws IOException {
 		
 		cart.setEmail((String)session.getAttribute("user"));
 		cart.setShooetype(name);
+		shoesService.storeInCart(cart);
+		model.addAttribute("shoes",shoesService.getCartItems((String)session.getAttribute("user")));
 		return "cart";
 	}
 	
-//	@PostMapping("/search")
-//	public String getUser(@RequestParam String sid,Model model) {
-//			
-//		User user = service.getUser(sid);
-//		model.addAttribute("user",user);
-//		
-//		return "updateuser";
-//
-//	}
+	@GetMapping("/cart")
+	public String cart(Model model,Cart cart,HttpSession session) throws IOException {
+		
+		model.addAttribute("shoes",shoesService.getCartItems((String)session.getAttribute("user")));
+		return "cart";
+	}
+	
+	@GetMapping("/searchuser")
+	public  String searchUserPage() {
+		return "searchuser";
+	}
+	
+	@PostMapping("/search")
+	public String getUser(@RequestParam String email,Model model) {
+			
+		User user = service.getUser(email);
+		model.addAttribute("user",user);
+		
+		return "viewUser";
+
+	}
 //	
 //	@PostMapping("/update")
 //	public String updateUser(@ModelAttribute User user) {
